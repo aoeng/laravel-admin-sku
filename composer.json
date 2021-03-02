@@ -1,6 +1,6 @@
 {
     "name": "aoeng/laravel-admin-sku",
-    "description": "",
+    "description": "laravel admin SKU extension",
     "type": "library",
     "keywords": [
         "laravel-admin",
