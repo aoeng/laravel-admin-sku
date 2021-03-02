@@ -21,6 +21,8 @@ class SkuServiceProvider extends ServiceProvider
             );
         }
 
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
         Admin::booting(function () {
             Form::extend('sku', SkuField::class);
         });

@@ -16,11 +16,21 @@ class SkuField extends Field
         'vendor/aoeng/laravel-admin-sku/sku.css'
     ];
 
+    protected $sku = [];
+
+    public function load($sku)
+    {
+        $this->sku = $sku;
+    }
+
     public function render()
     {
+        $options = json_encode($this->options ?: ['price' => '价格', 'inventory' => '库存']);
+        $sku = json_encode($this->sku);
 
         $this->script = <<< EOF
-window.DemoSku = new JadeKunSKU('{$this->getElementClassSelector()}')
+window.DemoSku = new LaravelAdminSKU('{$this->column}','{$options}','$sku');
+
 EOF;
         return parent::render();
     }

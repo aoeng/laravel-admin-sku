@@ -12,5 +12,15 @@ class Sku extends Extension
 
     public $assets = __DIR__.'/../resources/assets';
 
+    public function __construct()
+    {
+        self::routes(__DIR__ . '/../routes/admin.php');
+    }
 
+    public static function import()
+    {
+        parent::import();
+
+        self::createMenu('规格模板管理', 'sku\specification-templates', 'fa-file');
+    }
 }
